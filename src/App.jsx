@@ -1,42 +1,50 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
+import React, { useEffect } from "react";
+import Routing from './Routing';
+import { useSelector } from "react-redux";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import { motion } from "framer-motion";
 
 const App = () => {
   const dark = useSelector((state) => state.theme.dark);
-  const isOpen = useSelector((state) => state.sidebar.isOpen); // add this line
+  const isOpen = useSelector((state) => state.sidebar.isOpen);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
 
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleSystemThemeChange = (e) => {
-      if (!localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      if (!localStorage.getItem("theme")) {
+        document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
       }
     };
 
-    mediaQuery.addEventListener('change', handleSystemThemeChange);
-    return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    mediaQuery.addEventListener("change", handleSystemThemeChange);
+    return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
   }, [dark]);
 
   return (
-    <div>
+    <div className="flex min-h-screen">
       <Sidebar />
+
       <div
-        className="transition-all duration-300 min-h-screen"
+        className={`transition-all duration-300 flex-1 ${
+          isOpen ? "md:ml-64" : "md:ml-20"
+        } ml-0`}
         style={{
-          marginLeft: isOpen ? '16rem' : '5rem',
-          backgroundColor: 'var(--bg-color)',
-          color: 'var(--text-color)',
+          backgroundColor: "var(--bg-color)",
+          color: "var(--text-color)",
         }}
       >
         <Navbar />
-        <main className="p-6">
-          <h1 className="text-3xl font-bold mb-4">Welcome to your Portfolio Dashboard</h1>
-          <p className="text-lg">Start building a modern and responsive portfolio here.</p>
-        </main>
+        <motion.main
+          className="p-4 sm:p-6 md:p-8 pb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Routing />
+        </motion.main>
       </div>
     </div>
   );
