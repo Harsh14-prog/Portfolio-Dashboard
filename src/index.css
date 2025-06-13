@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root[data-theme='light'] {
   --bg-color: rgba(249, 250, 251, 1);
   --text-color: rgba(31, 41, 55, 1);
   --hover-bg: rgba(243, 244, 246, 1);
   --sidebar-bg: rgba(243, 244, 246, 1);
-  --card-bg: rgba(255, 255, 255, 1);
-  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  --border-color: rgba(229, 231, 235, 1);
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* enhanced shadow */
+  --border-color: rgba(209, 213, 219, 1); /* gray-300 */
 }
 
 :root[data-theme='dark'] {
@@ -30,4 +34,8 @@ body {
 
 * {
   transition: background-color 0.3s, color 0.3s;
+}
+
+html, body, #root {
+  min-height: 100%;
 }

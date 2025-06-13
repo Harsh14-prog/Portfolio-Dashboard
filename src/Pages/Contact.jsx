@@ -1,55 +1,87 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Card from '../components/Card';
 import Button from '../components/Button';
+import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 
 const Contact = () => {
   useEffect(() => {
     document.title = 'Contact | Dashboard';
   }, []);
 
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Message sent!');
+    const { name, email, message } = form;
+
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      alert('Please fill in all fields before submitting!');
+      return;
+    }
+
+    alert('Form submitted successfully!');
+    setForm({ name: '', email: '', message: '' });
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-xl mx-auto bg-[var(--card-bg)] p-6 rounded-xl shadow"
-      style={{
-        boxShadow: 'var(--card-shadow)',
-        border: '1px solid var(--border-color)',
-      }}
-    >
-      <h2 className="text-2xl font-bold text-[var(--text-color)] mb-4">Get in Touch</h2>
+    <div className="max-w-3xl mx-auto space-y-6">
+      <Card>
+        <h2 className="text-2xl font-bold text-[var(--text-color)] mb-4">Get in Touch</h2>
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <label className="text-sm text-gray-600 dark:text-gray-400 block">Name</label>
+            <input
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Your Name"
+              className="w-full p-2 rounded-md border bg-transparent border-[var(--border-color)] text-[var(--text-color)] placeholder-gray-500 dark:placeholder-gray-400"
+            />
+          </div>
+          <div>
+            <label className="text-sm text-gray-600 dark:text-gray-400 block">Email</label>
+            <input
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="you@example.com"
+              className="w-full p-2 rounded-md border bg-transparent border-[var(--border-color)] text-[var(--text-color)] placeholder-gray-500 dark:placeholder-gray-400"
+            />
+          </div>
+          <div>
+            <label className="text-sm text-gray-600 dark:text-gray-400 block">Message</label>
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="Write your message..."
+              rows="4"
+              className="w-full p-2 rounded-md border bg-transparent border-[var(--border-color)] text-[var(--text-color)] placeholder-gray-500 dark:placeholder-gray-400"
+            />
+          </div>
+          <Button type="submit">Send Message</Button>
+        </form>
+      </Card>
 
-      <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-400">Name</label>
-          <input
-            type="text"
-            placeholder="Your name"
-            className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-transparent text-[var(--text-color)] focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
+      <Card>
+        <h3 className="text-lg font-semibold mb-3 text-[var(--text-color)]">Connect</h3>
+        <div className="flex gap-4 text-indigo-600 text-xl">
+          <a href="mailto:your.email@example.com" target="_blank" rel="noreferrer" className="hover:text-indigo-800 transition">
+            <FiMail />
+          </a>
+          <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-indigo-800 transition">
+            <FiGithub />
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="hover:text-indigo-800 transition">
+            <FiLinkedin />
+          </a>
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-400">Email</label>
-          <input
-            type="email"
-            placeholder="you@example.com"
-            className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-transparent text-[var(--text-color)] focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-400">Message</label>
-          <textarea
-            rows="4"
-            placeholder="Type your message..."
-            className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-transparent text-[var(--text-color)] focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          ></textarea>
-        </div>
-        <Button type="submit">Send Message</Button>
-      </div>
-    </form>
+      </Card>
+    </div>
   );
 };
 

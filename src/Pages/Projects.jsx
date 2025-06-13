@@ -1,70 +1,131 @@
-import React, { useEffect } from 'react';
-import Card from '../components/Card';
-import Button from '../components/Button';
+import React, { useEffect } from "react";
+import Card from "../components/Card";
+import Button from "../components/Button";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const projects = [
+const projectList = [
   {
-    title: 'DevConnect',
-    description: 'A social media platform for developers to connect, collaborate, and share portfolios.',
-    tech: 'React, Firebase, Tailwind CSS',
-    link: '#',
+    title: "DevConnect",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80",
+    type: "Social Platform",
+    role: "Full Stack Developer",
+    description: "Connect, collaborate, and share portfolios with fellow developers.",
+    features: ["Authentication", "Post sharing", "Follow system"],
+    tech: ["React", "Firebase", "Tailwind CSS"],
+    github: "#",
+    live: "#",
   },
   {
-    title: 'E-Shop Admin Dashboard',
-    description: 'Interactive dashboard for managing orders, customers, and revenue with charts.',
-    tech: 'React, Redux Toolkit, Chart.js',
-    link: '#',
+    title: "E-Shop Admin Dashboard",
+    image: "https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=400&q=80",
+    type: "Dashboard UI",
+    role: "Frontend Developer",
+    description: "Manage products, orders, and revenue with data visualizations.",
+    features: ["Revenue charts", "Order management", "User table"],
+    tech: ["React", "Redux Toolkit", "Chart.js"],
+    github: "#",
+    live: "#",
   },
   {
-    title: 'MyBlog CMS',
-    description: 'A markdown-based blogging platform with category filters and a custom editor.',
-    tech: 'Next.js, MongoDB, Tailwind',
-    link: '#',
+    title: "MyBlog CMS",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80",
+    type: "Blogging CMS",
+    role: "Full Stack Developer",
+    description: "Write and publish markdown posts with a modern UI.",
+    features: ["Live markdown editor", "Category filters", "MongoDB integration"],
+    tech: ["Next.js", "MongoDB", "Tailwind"],
+    github: "#",
+    live: "#",
   },
   {
-    title: 'TaskTracker',
-    description: 'Kanban-style drag-and-drop task management app.',
-    tech: 'React, Supabase, DnD Kit',
-    link: '#',
+    title: "Weatherly",
+    image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80",
+    type: "Weather App",
+    role: "Frontend Developer",
+    description: "Real-time weather tracking with location and forecast support.",
+    features: ["Current weather", "5-day forecast", "Dark mode"],
+    tech: ["React", "OpenWeather API", "Tailwind"],
+    github: "#",
+    live: "#",
   },
   {
-    title: 'CodeSnaps Portfolio',
-    description: 'Personal portfolio site with Framer Motion animations and light/dark themes.',
-    tech: 'Vite, Tailwind CSS, Framer Motion',
-    link: '#',
+    title: "PortfolioX",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80",
+    type: "Portfolio Site",
+    role: "Frontend Developer",
+    description: "Animated developer portfolio with projects and contact form.",
+    features: ["Light/dark toggle", "Framer Motion", "Mobile responsive"],
+    tech: ["Vite", "Framer Motion", "Tailwind CSS"],
+    github: "#",
+    live: "#",
   },
   {
-    title: 'Weatherly',
-    description: 'Weather app with live location data and 5-day forecast view.',
-    tech: 'React, OpenWeather API',
-    link: '#',
+    title: "TaskTracker",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
+    type: "Productivity Tool",
+    role: "Solo Developer",
+    description: "Manage your projects visually with drag and drop boards.",
+    features: ["Drag & drop", "Project labels", "Collaboration"],
+    tech: ["React", "DnD Kit", "Supabase"],
+    github: "#",
+    live: "#",
   },
 ];
 
 const Projects = () => {
   useEffect(() => {
-    document.title = 'Projects | Dashboard';
+    document.title = "Projects | Dashboard";
+    AOS.init({ duration: 800 });
   }, []);
 
   return (
     <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project, index) => (
-        <Card key={index}>
-          <h3 className="text-lg font-semibold text-[var(--text-color)]">{project.title}</h3>
-          <p className="text-sm text-gray-500 mt-1">{project.description}</p>
-          <p className="text-sm text-gray-400 mt-1 italic">Tech Stack: {project.tech}</p>
-          <div className="mt-3">
-            <Button>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project →
+      {projectList.map((project, index) => (
+        <div key={index} data-aos="fade-up">
+          <Card>
+            <img
+              src={project.image}
+              alt={project.title}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "https://placehold.co/400x200?text=Preview+Unavailable";
+              }}
+              className="rounded-md mb-4 object-cover h-40 w-full"
+            />
+            <h3 className="text-xl font-bold text-[var(--text-color)]">{project.title}</h3>
+            <p className="text-xs text-gray-500 italic">
+              {project.type} — {project.role}
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{project.description}</p>
+
+            <ul className="text-xs text-gray-500 mt-2 list-disc list-inside">
+              {project.features.map((feature, i) => (
+                <li key={i}>{feature}</li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-2 mt-3">
+              {project.tech.map((tech, i) => (
+                <span
+                  key={i}
+                  className="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded-full text-gray-800 dark:text-gray-200"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-4 flex gap-3">
+              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                <Button>GitHub</Button>
               </a>
-            </Button>
-          </div>
-        </Card>
+              <a href={project.live} target="_blank" rel="noopener noreferrer">
+                <Button>Live Demo</Button>
+              </a>
+            </div>
+          </Card>
+        </div>
       ))}
     </div>
   );

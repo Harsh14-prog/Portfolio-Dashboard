@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {toggleTheme} from '../Features/themeSlice';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { toggleTheme } from '../Features/themeSlice';
+import { toggleSidebar } from '../Features/sidebarSlice';
+import { FiSun, FiMoon, FiMenu } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -16,7 +17,22 @@ const Navbar = () => {
         color: 'var(--text-color)',
       }}
     >
-      <h2 className="text-lg sm:text-xl font-semibold">My Dashboard</h2>
+      {/* Left Side */}
+      <div className="flex items-center gap-4">
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden p-2 rounded-md border border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700"
+          onClick={() => dispatch(toggleSidebar())}
+          title="Menu"
+        >
+          <FiMenu size={20} />
+        </button>
+
+        {/* Logo / Title */}
+        <h2 className="text-lg sm:text-xl font-semibold">My Dashboard</h2>
+      </div>
+
+      {/* Right Side */}
       <button
         onClick={() => dispatch(toggleTheme())}
         title={dark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
@@ -31,7 +47,11 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="absolute"
           >
-            {dark ? <FiSun size={20} className="text-yellow-400" /> : <FiMoon size={20} className="text-indigo-600" />}
+            {dark ? (
+              <FiSun size={20} className="text-yellow-400" />
+            ) : (
+              <FiMoon size={20} className="text-indigo-600" />
+            )}
           </motion.div>
         </AnimatePresence>
       </button>
