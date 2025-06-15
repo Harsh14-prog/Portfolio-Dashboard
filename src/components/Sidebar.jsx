@@ -25,7 +25,7 @@ const Sidebar = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [firstLoad, setFirstLoad] = useState(true);
 
-  // Handle screen resize
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -47,8 +47,7 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Mobile backdrop */}
-      {/* Mobile backdrop with blur effect */}
+    
       <div
         className={`fixed inset-0 z-30 backdrop-blur-sm bg-black/30 md:hidden transition-opacity ${
           isOpen
@@ -86,7 +85,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        {/* Nav Items */}
+       
         <div className="p-4 space-y-2">
           {navItems.map((item) => (
             <Link key={item.label} to={item.path}>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Overview from "./pages/Overview";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
+import Overview from "./Pages/Overview";
+import Projects from "./Pages/Projects";
+import Contact from "./Pages/Contact";
 
 const Routing = () => {
   return (

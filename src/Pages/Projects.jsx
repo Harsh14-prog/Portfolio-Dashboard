@@ -82,8 +82,19 @@ const Projects = () => {
   return (
     <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {projectList.map((project, index) => (
-        <div key={index} data-aos="fade-up">
-          <Card>
+        <div key={index} data-aos="fade-up" className="relative group">
+          {/* Tooltip Box */}
+          <div className="absolute top-0 left-0 z-20 bg-white shadow-md border border-slate-200 p-3 text-xs text-slate-700 rounded-lg opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition duration-300 transform translate-y-[-10px] w-60 pointer-events-none">
+            <p className="font-semibold mb-1">{project.title} Overview</p>
+            <ul className="list-disc list-inside space-y-1">
+              {project.features.slice(0, 2).map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Main Card */}
+          <Card className="relative">
             <img
               src={project.image}
               alt={project.title}
@@ -93,11 +104,11 @@ const Projects = () => {
               }}
               className="rounded-md mb-4 object-cover h-40 w-full"
             />
-            <h3 className="text-xl font-bold text-[var(--text-color)]">{project.title}</h3>
+            <h3 className="text-xl font-bold text-slate-800">{project.title}</h3>
             <p className="text-xs text-gray-500 italic">
               {project.type} — {project.role}
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{project.description}</p>
+            <p className="text-sm text-gray-600 mt-2">{project.description}</p>
 
             <ul className="text-xs text-gray-500 mt-2 list-disc list-inside">
               {project.features.map((feature, i) => (
@@ -109,7 +120,7 @@ const Projects = () => {
               {project.tech.map((tech, i) => (
                 <span
                   key={i}
-                  className="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded-full text-gray-800 dark:text-gray-200"
+                  className="bg-gray-100 text-xs px-2 py-1 rounded-full text-gray-800"
                 >
                   {tech}
                 </span>

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isOpen: window.innerWidth >= 768, // Open by default on desktop
+  isOpen: window.innerWidth >= 768, 
 };
 
 const sidebarSlice = createSlice({
@@ -10,9 +10,9 @@ const sidebarSlice = createSlice({
   reducers: {
     toggleSidebar: (state, action) => {
       if (typeof action.payload === 'boolean') {
-        state.isOpen = action.payload; // Explicit open/close
+        state.isOpen = action.payload; 
       } else {
-        state.isOpen = !state.isOpen;  // Toggle
+        state.isOpen = !state.isOpen;  
       }
     },
   },

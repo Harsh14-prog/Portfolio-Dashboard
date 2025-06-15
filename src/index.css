@@ -10,8 +10,8 @@ html {
   --hover-bg: rgba(243, 244, 246, 1);
   --sidebar-bg: rgba(243, 244, 246, 1);
   --card-bg: #ffffff;
-  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* enhanced shadow */
-  --border-color: rgba(209, 213, 219, 1); /* gray-300 */
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+  --border-color: rgba(209, 213, 219, 1); 
 }
 
 :root[data-theme='dark'] {
