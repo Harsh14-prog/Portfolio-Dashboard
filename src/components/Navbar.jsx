@@ -26,9 +26,12 @@ const Navbar = () => {
           <FiMenu size={20} />
         </button>
 
-        <h2 className="text-lg sm:text-xl font-semibold">
-          <span className="text-slate-700 dark:text-slate-100">Welcome,</span>{" "}
-          <span className="text-indigo-600 dark:text-emerald-400">Harsh</span>
+        <h2
+          className="text-lg sm:text-xl font-semibold"
+          style={{ color: "var(--text-color)" }}
+        >
+          <span style={{ color: "var(--welcome-text-primary)" }}>Welcome,</span>{" "}
+          <span style={{ color: "var(--welcome-text-highlight)" }}>Harsh</span>
         </h2>
       </div>
 

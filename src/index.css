@@ -10,8 +10,11 @@ html {
   --hover-bg: rgba(243, 244, 246, 1);
   --sidebar-bg: rgba(243, 244, 246, 1);
   --card-bg: #ffffff;
-  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-  --border-color: rgba(209, 213, 219, 1); 
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --border-color: rgba(209, 213, 219, 1);
+
+  --welcome-text-primary: rgba(71, 85, 105, 1); 
+  --welcome-text-highlight: rgba(79, 70, 229, 1); 
 }
 
 :root[data-theme='dark'] {
@@ -22,7 +25,11 @@ html {
   --card-bg: rgba(31, 41, 55, 1);
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   --border-color: rgba(55, 65, 81, 1);
+
+  --welcome-text-primary: rgba(226, 232, 240, 1); 
+  --welcome-text-highlight: rgba(16, 185, 129, 1); 
 }
+
 
 body {
   margin: 0;

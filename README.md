@@ -1,49 +1,47 @@
-
-#  Portfolio Dashboard
+# Portfolio Dashboard
 
 A responsive portfolio dashboard built with **React.js**, **Redux Toolkit**, and **Tailwind CSS**. This project features a collapsible sidebar, a top navbar, dark/light theme toggling, and mock sections like Overview, Projects, and Contact.
 
 ---
 
-##  Features
+## Features
 
--  Collapsible Sidebar (Redux managed)
--  Light/Dark Mode Toggle
--  Fully Responsive Layout
--  Reusable Components (Card, Button, etc.)
--  Mock Content Pages (Overview, Projects, Contact)
--  State Management with Redux Toolkit
--  Animations using Framer Motion
+- Collapsible Sidebar (Redux managed)  
+- Light/Dark Mode Toggle  
+- Fully Responsive Layout  
+- Reusable Components (Card, Button, etc.)  
+- Mock Content Pages (Overview, Projects, Contact)  
+- State Management with Redux Toolkit  
+- Animations using Framer Motion  
 
 ---
 
 ## Folder Structure
 
-Portfolio-Dashboard/
-├── public/
-├── src/
-│ ├── components/
-│ ├── features/ # Redux slices
-│ ├── pages/
-│ ├── redux/ # Redux store config
-│ ├── App.jsx
-│ └── main.jsx
-└── tailwind.config.js
-
-
-
----
-
-##  Tech Stack
-
-- React.js
-- Redux Toolkit
-- Tailwind CSS
-- Framer Motion
+Portfolio-Dashboard/  
+├── public/  
+├── screenshots/  
+├── src/  
+│ ├── components/  
+│ ├── features/ # Redux slices  
+│ ├── pages/  
+│ ├── redux/ # Redux store config  
+│ ├── App.jsx  
+│ └── main.jsx  
+└── tailwind.config.js  
 
 ---
 
-##  Installation & Setup
+## Tech Stack
+
+- React.js  
+- Redux Toolkit  
+- Tailwind CSS  
+- Framer Motion  
+
+---
+
+## Installation & Setup
 
 To run this project locally:
 
@@ -53,7 +51,24 @@ cd Portfolio-Dashboard
 npm install
 npm run dev
 
+
 ```
+
+## Screenshots
+
+### Projects
+![Landing Page](./screenshots/project.png)
+
+### Overview
+![Internship Listings](./screenshots/overview.png)
+
+###  Contact Section
+![Contact](./screenshots/contact.png)
+
+###  Light Mode
+![Internship Details](./screenshots/Light_Mode.png)
+
+---
 
 ## Contact
 
