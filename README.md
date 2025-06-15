@@ -57,7 +57,7 @@ npm run dev
 ## Screenshots
 
 ### Projects
-![Projects](./screenshots/project.png)
+![Projects](./screenshots/projects.png)
 
 ### Overview
 ![Overview](./screenshots/overview.png)
@@ -66,7 +66,7 @@ npm run dev
 ![Contact Section](./screenshots/contact.png)
 
 ###  Light Mode
-![Light Mode](./screenshots/Light_Mode.png)
+![Light Mode](./screenshots/light_Mode.png)
 
 ---
 
