@@ -57,7 +57,7 @@ npm run dev
 
 ## Contact
 
--  LinkedIn: [Harshad Khambe](https://www.linkedin.com/in/harshad-khambe-33b06a255/)
+- LinkedIn: [Harshad Khambe](https://www.linkedin.com/in/harshad-khambe-33b06a255/)
 - GitHub: [@Harsh14-prog](https://github.com/Harsh14-prog)
 - Email: harshadkhambe14@gmail.com
 
