@@ -57,16 +57,16 @@ npm run dev
 ## Screenshots
 
 ### Projects
-![Landing Page](./screenshots/project.png)
+![Projects](./screenshots/project.png)
 
 ### Overview
-![Internship Listings](./screenshots/overview.png)
+![Overview](./screenshots/overview.png)
 
 ###  Contact Section
-![Contact](./screenshots/contact.png)
+![Contact Section](./screenshots/contact.png)
 
 ###  Light Mode
-![Internship Details](./screenshots/Light_Mode.png)
+![Light Mode](./screenshots/Light_Mode.png)
 
 ---
 
